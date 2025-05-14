@@ -27,15 +27,15 @@ const Login = () => {
       try {
         const response = await axios.post(`${url}/api/user/login`, data);  // Use the URL from context
 
-        if (response.status === 200) {
+        if (response.data.success) {
           toast.success("OTP sent successfully.");
-
           setTimeout(() => {
             navigate("/otp", { state: { email, password } });
           }, 3000);
         } else {
-          toast.error(response.data.error);
+          toast.error(response.data.message);
         }
+
       } catch (error) {
         toast.error("An error occurred. Please try again.");
       } finally {
