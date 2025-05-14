@@ -12,9 +12,9 @@ const Footer = () => {
           <h1 className='logo'>QuickBite</h1>
           <p>Craving something delicious? QuickBite brings your favorite meals right to your doorstep with just a few taps. From savory appetizers to sweet desserts, we partner with top restaurants in your area to offer a wide variety of cuisines, all delivered hot and fresh. Enjoy hassle-free ordering, real-time tracking, and fast delivery, all at your fingertips. Satisfy your cravings anytime, anywhere – because good food should never be far away.</p>
           <div className="footer-social-icons">
-            <Link to='https://www.linkedin.com/in/utkarshtaneja/'><i className="fa-brands fa-linkedin"></i></Link>
-            <Link to='https://x.com/utkarshtaneja4'><i className="fa-brands fa-twitter"></i></Link>
-            <Link to='https://www.instagram.com/utkarsh_taneja_/'><i className="fa-brands fa-instagram"></i></Link>
+            <Link to=''><i className="fa-brands fa-linkedin"></i></Link>
+            <Link to=''><i className="fa-brands fa-twitter"></i></Link>
+            <Link to=''><i className="fa-brands fa-instagram"></i></Link>
           </div>
         </div>
 
