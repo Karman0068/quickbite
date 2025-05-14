@@ -25,7 +25,7 @@ const Login = () => {
       const data = { email, password };
 
       try {
-        const response = await axios.post(`${url}/api/user/login`, data);  // Use the URL from context
+        const response = await axios.post(`${url}/api/user/login`, data);
 
         if (response.data.success) {
           toast.success("OTP sent successfully.");
@@ -33,11 +33,14 @@ const Login = () => {
             navigate("/otp", { state: { email, password } });
           }, 3000);
         } else {
-          toast.error(response.data.message);
+          toast.error(response.data.message);  // Still a fallback
         }
-
       } catch (error) {
-        toast.error("An error occurred. Please try again.");
+        if (error.response && error.response.data && error.response.data.message) {
+          toast.error(error.response.data.message);
+        } else {
+          toast.error("An error occurred. Please try again.");
+        }
       } finally {
         setSpinner(false);  // Stop the spinner regardless of success or failure
       }
