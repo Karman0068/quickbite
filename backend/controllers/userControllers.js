@@ -17,7 +17,7 @@ exports.loginUser = async (req, res) => {
     try {
         const user = await userModel.findOne({ email });
         if (!user) {
-            return res.json({ success: false, message: "User doesn't exist" });
+            return res.status(404).json({ success: false, message: "User doesn't exist" });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -38,12 +38,13 @@ exports.loginUser = async (req, res) => {
 
         await sendOtpEmail(email, otp);
 
-        res.json({ success: true, message: "OTP sent to your email." });
+        res.status(200).json({ success: true, message: "OTP sent to your email." });
     } catch (error) {
         console.log(error);
-        res.json({ success: false, message: "An error occurred while logging in." });
+        res.status(500).json({ success: false, message: "An error occurred while logging in." });
     }
 };
+
 
 // Function to send OTP via email
 const sendOtpEmail = async (email, otp) => {
